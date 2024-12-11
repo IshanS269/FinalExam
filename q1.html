@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Action Attribute</title>
+</head>
+<body>
+    <header>
+        <h1>Post Action Attribute</h1>
+    </header>
+    <main>
+        <section>
+            <h2>http://localhost:3002/send/</h2>
+            <p>
+                This action attribute will not work on GitHub Pages. GitHub Pages serves static content and does not support server-side operations. The URL "http://localhost:3002/send/" points to a local server, which must be running on your machine for this to function. Since GitHub Pages cannot connect to your local environment, this form action will fail.
+            </p>
+        </section>
+        <section>
+            <h2>https://dry-bayou-18746.herokuapp.com/send/</h2>
+            <p>
+                This action attribute can work on GitHub Pages, provided the Heroku server at "https://dry-bayou-18746.herokuapp.com/send/" is live and configured to handle POST requests. GitHub Pages can send data to external servers over HTTP, so the form will function if the target server is operational and correctly set up.
+            </p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Post Action Attribute Explanation</p>
+    </footer>
+</body>
+</html>

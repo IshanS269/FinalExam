@@ -1,35 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magic 8 Ball</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        input::placeholder {
+            color: #bbb;
+            font-style: italic;
+        }
+        .answer {
+            color: red;
+            font-size: 2em;
+            line-height: 2;
+            font-family: 'Pacifico', cursive;
+        }
     </style>
 </head>
-
 <body>
-    <h1>The magic 8 ball</h1>
-    <input /><br />
-    <x-magic />
+    <h1>Magic 8 Ball</h1>
+    <p>Ask the Magic 8 Ball a question and get your answer!</p>
+    <input type="text" id="question" placeholder="ask me anything">
+    <x-magic></x-magic>
+
     <script>
-        class Magic8Ball extends HTMLElement{
-            connectedCallback(){
-                this.innerHTML = 
-`
-    <button id="question">Ask</button>
-    <p id="answer"></p>
-`
-                this.button = document.querySelector("#question");
-                this.button.addEventListener("click", ()=>{
-                    const answer = document.querySelector("#answer");
-                    const aAnswers=["yes", "definitely", "no"];
-                    const nAnswer = Math.floor(Math.random() * aAnswers.length);
-                    answer.innerHTML = aAnswers[nAnswer];
-                })
+        class Magic8Ball extends HTMLElement {
+            connectedCallback() {
+                this.innerHTML = `
+                    <button id="ask-button">Ask</button>
+                    <p id="answer" class="answer"></p>
+                `;
+                this.button = this.querySelector("#ask-button");
+                this.answerElement = this.querySelector("#answer");
+                this.answers = [
+                    "Yes",
+                    "No",
+                    "Maybe",
+                    "Ask again later",
+                    "It is certain",
+                    "Don't count on it",
+                    "Very doubtful",
+                    "Outlook good"
+                ];
+                this.button.addEventListener("click", () => this.getAnswer());
+            }
+
+            getAnswer() {
+                const randomIndex = Math.floor(Math.random() * this.answers.length);
+                this.answerElement.textContent = this.answers[randomIndex];
             }
         }
 
         customElements.define("x-magic", Magic8Ball);
     </script>
 </body>
-
 </html>

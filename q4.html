@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparison of .png and .jpg</title>
+</head>
+<body>
+    <h1>Comparison of .png and .jpg</h1>
+
+    <section>
+        <h2>Ways that .pngs are superior to .jpgs</h2>
+        <ul>
+            <li>Because it supports transparency, it's perfect for web design and overlays.</li>
+            <li>Lossless compression guarantees unaltered high-quality photos.</li>
+            <li>Better suited for pictures like schematics and logos that have text or sharp edges.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Ways that .pngs are inferior to .jpgs</h2>
+        <ul>
+            <li>Larger files than JPGs, which may cause load times to increase.</li>
+            <li>For photos with intricate gradients, it is less effective.</li>
+        </ul>
+    </section>
+
+    <footer>
+        <x-year></x-year>
+    </footer>
+
+    <script>
+        class CurrentYear extends HTMLElement {
+            connectedCallback() {
+                const year = new Date().getFullYear();
+                this.innerHTML = `&copy; ${year}`;
+            }
+        }
+
+        customElements.define("x-year", CurrentYear);
+    </script>
+</body>
+</html>
